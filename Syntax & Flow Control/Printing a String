@@ -66,3 +66,10 @@ If problem is about length / format → use string
 👌
 
 T(C) = o(1) , S(C) = o(1)
+
+I had a doubt that I didn't took any integer as input then why the 1st python code didn't worked ? Okay as the length is given should be in between 1000, so I kept in mind about the constraint but the recent test case which is very big is >>1000, so I just removed the if block and it worked.
+☑️
+s= input()
+print (s)
+☑️ 
+0.35 ms ⌛🕰️

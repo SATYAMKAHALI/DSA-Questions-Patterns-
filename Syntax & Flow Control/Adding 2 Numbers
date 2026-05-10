@@ -1,0 +1,28 @@
+Qstn). Sum of 2 nos with constraint {1<=a<=100 && 1<=b<=100}
+
+Ans). (in python)
+
+a= int(input())
+b = int(input())
+if 1<= a <=100 and 1 <=b <=100:
+    print(a+b)
+else:
+    print("invalid sum")
+
+(in C++)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    //Write Your Code here...
+    int a,b ;
+    cin>>a>>b;
+    if(a>=1 && a<=100 && b>=1 && b<=100){
+        cout <<(a+b) << endl ;
+    }
+    else{
+        cout << "Sum is not in constraint" << endl;
+    }
+    return 0;
+}

@@ -1,0 +1,68 @@
+Q) Take a String as input and print it as it is
+
+A) (in c++)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    // Write Your Code here...
+    string s;
+    getline(cin,s);
+    if (1<= s.length () <= 1000) {
+        cout<<s;
+    }
+    return 0;
+}
+
+A) (in python) {7/8 test cases passed} 
+
+#Write Your Code Here...
+s= input()
+if 1<= len(s) <= 1000:
+    print (s)
+    
+Test case didn't pass : = 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890....... this test case is not getting passed in python
+
+Solution := 1) Failed : 
+
+s= input()
+a= int(input())
+if 1<= len(s) <= 1000:
+    print (s)
+    print (a)
+Error : EOFError: EOF when reading a line
+
+Problem : int(input())   # ❌ risky for very large numbers
+
+2) explanation : 
+Intuition
+The goal is to display the exact string provided as input.
+Simply take the input string and pass it to the print function.
+No processing or modification is needed—just output it as it is.
+
+Approach
+Read the input string into a variable named input_string and print it as it is.
+
+Pseudocode :
+/* Function to print the input string */
+printString(input_string) {
+    /* Print the input string */
+    print input_string;
+}
+
+Actual Code : in python
+
+def printString(input_string):
+    print(input_string)    // It simply prints the string as-is & length doesn’t matter (Python strings can be huge)
+
+if __name__ == "__main__":
+    input_string = input()          
+    printString(input_string)
+
+👌
+Rule for DSA / CP
+If problem is about value → use int
+If problem is about length / format → use string
+👌
+
+T(C) = o(1) , S(C) = o(1)

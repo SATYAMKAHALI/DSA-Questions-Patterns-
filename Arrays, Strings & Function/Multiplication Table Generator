@@ -1,0 +1,139 @@
+Qstn : Multiplication Table Generator
+Iterative Multiplication from 1 to 10 where you need to print the same number multiplied by every value from 1 to 10.
+input : 5
+output :
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50     // the output should follow this specific order.
+Ans : in c++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution{
+public:
+    void table(int n){
+        for(int i=1;i<=10;i++){  
+            cout << n << " x "<< i <<" = "<< n*i << endl;  // to print in specific order.
+        }
+    }
+};
+In the platform there was a main function was already declared inside class solution inherently therefore I was getting an error :
+main.cpp:22:5: error: conflicting declaration of C function 'int main(int, char**)'
+   22 | int main(int argc, char* argv[]) {
+      |     ^~~~
+In file included from main.cpp:11:
+solution.cpp:12:5: note: previous declaration 'int main()'
+   12 | int main(){
+      |     ^~~~
+
+what I had written before was : 
+2nd wrong snippet:
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution{
+public:
+    void table(int n){
+        for(int i=1;i<=10;i++){  
+            cout << n << " x "<< i <<" = "<< n*i << endl;  // to print in specific order.
+        }
+    }
+};
+int main() {
+    int n;
+    cin >> n;
+    solution obj;
+    obj.table(n);
+
+    return 0;
+}
+
+1st wrong snippet: 
+#include <bits/stdc++.h>
+using namespace std;
+int length (int arr[]){
+    cout<< sizeof (arr)/ sizeof (arr[0]) ;
+}
+int main(){
+    int n;
+    cin >> n ;
+    solution.table(n);
+    return 0;
+}
+class solution{
+public:
+    void table(int n){
+        int array [10] = {1,2,3,4,5,6,7,8,9,10};
+        int result;
+        for(int i=0,i<array.length(array),i++){
+            cout << result = n* array[i] << endl;
+        }
+    }
+};
+
+Mistakes : #1 Main function in C++ is always written below rest other functions in the end.
+#2 the length function has to return an integer of array length. This exact formula works if written outside a function.
+
+👉 Inside a function, arr becomes a pointer, so sizeof(arr) is wrong
+👉 This will NOT give correct length
+Now how this ,"sizeof (arr)/ sizeof (arr[0])" works ? 
+
+Assume:
+int arr[] = {1,2,3,4,5};
+1. sizeof(arr)
+
+👉 Total memory used by the array
+
+Each int = 4 bytes
+5 elements → 5 × 4 = 20 bytes
+sizeof(arr) = 20
+2. sizeof(arr[0])
+
+👉 Size of one element
+
+sizeof(arr[0]) = 4
+3. Divide them
+n = 20 / 4 = 5
+
+👉 Number of elements = 5
+🔹 Final Meaning
+int n = sizeof(arr) / sizeof(arr[0]);
+
+👉 “Total size of array ÷ size of one element = number of elements”
+
+🔹 Why this works
+
+Because:
+Array is stored contiguously in memor & all elements are of same size. 
+
+In interviews, better use:
+
+vector<int> v;
+v.size();
+
+Because:
+a) safer
+b) works everywhere
+c) no confusion
+
+👉 In C++:
+
+arrays → no length function
+containers (vector, string) → have .size() / .length()
+
+eg in c++; 
+#include <vector>
+vector<int> v = {1,2,3,4,5};   // int is the datatype mentioned for vector, we can also do vector <string> s = {"Satyam", "Startup"} and then later get to used the vector's methods.Don't confuse String.length() is for finding length of a string. Eg., "Satyam" has length of 6.
+cout << v.size();   // ✔ similar to length
+
+#3 In the for loop for c++ the separation should be ; and not , 
+#4 There is no predefined function in c++ called .length() which will get me the length of the array.
+#5 Not getting output in desired way.

@@ -45,7 +45,7 @@ if __name__ == "__main__":
     op = input().strip()
     performOperation(a,b,op)
 ..
-we could have written like this
+1). we could have written like this
 a = int(input())
 b = int(input())
 print(a + b) .... But this works if input are taken in 2 lines but a, b = map(int, input().split()) works best if inputs are taken in one line. and this is the best for CP practices.
@@ -63,3 +63,49 @@ which makes them
 a = 10   # integer ✅  
 b = 20 
 Now the Operation will give answer which is actual meaning of operation rather than concatenation.
+
+2). .strip() function
+👉 What it does:
+
+Removes extra spaces or newline characters from start and end
+
+✅ Example
+s = "   hello   "
+print(s.strip())
+
+Output:
+
+hello
+🔹 Why needed in your code
+op = input().strip()
+Suppose user enters:
++
+
+Actually Python reads:
+
+"+\n"
+
+👉 .strip() removes \n
+
+Result:
+
+"+"
+
+🔹 Without .strip()
+op = input()
+
+Then:
+
+if op == '+':   # ❌ might fail
+
+Because: op = "+\n"
+//it comes with a new line added at the end of the operator. so to remove it .strip() function is used.
+
+🔹 Summary
+Function	Purpose
+.split()	Break string into list
+.strip()	Remove spaces/newlines
+
+Further we will use these constantly:
+.split() → for arrays input
+.strip() → to avoid hidden bugs

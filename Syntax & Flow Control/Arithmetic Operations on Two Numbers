@@ -1,0 +1,65 @@
+Qstn : You are given two numbers and an operator.Based on the operator symbol (+, -, *, /), you perform the corresponding arithmetic operation. Then print the result.
+Input : a = 10, b = 5, op= "+"  , Output = 15 
+Ans : (in C++) 
+#include <bits/stdc++.h>
+using namespace std;
+
+void performOperation(long a, long b, char op){
+    int result;
+    if(op=='/' ){
+        result = a/b;
+    }
+    else if (op=='+'){
+        result = a+b;
+    }
+    else if (op=='-'){
+        result = a-b;
+    }
+    else if (op=='*'){
+        result = a*b;
+    }
+    cout<<result<<endl;
+}
+int main() {
+    // Write Your Code here...
+    long a,b;
+    char op;
+    cin>>a>>b>>op;
+    performOperation(a , b , op);
+    return 0;
+}
+
+Ans : (In python) 
+def performOperation(a,b,op):
+    if op == '+':
+        result = a+b 
+    elif op == '-':
+        result = a-b
+    elif op == '*':
+        result = a*b
+    elif op == '/':
+        result = a//b 
+    print(result)
+if __name__ == "__main__":
+    a, b = map(int, input().split())
+    op = input().strip()
+    performOperation(a,b,op)
+..
+we could have written like this
+a = int(input())
+b = int(input())
+print(a + b) .... But this works if input are taken in 2 lines but a, b = map(int, input().split()) works best if inputs are taken in one line. and this is the best for CP practices.
+Here there is something to note a,b = map(int, input().split()) why we had written this is if input is given in one single line, then input() stores it as a single sting "10  20". 
+But now as we have to separate it so .split() method is used to separate the two strings as [ "10" , "20" ] . This .split() method saves by separating the string into 2 different candidates and also stores in a list.
+
+Now why this map function is used ? : 
+The map functions is --->
+map(function, iterable)
+function → what you want to apply
+iterable → list / string / etc.
+
+so at first when we put input() as 10, 20 then it is taken as a string. therefore we used split() function to split it into ["10" , "20"] . Now as they are still taken as string if we apply the operation then a+b will concatenate both to give as 1020, therefore the map function is used which applies the ,"int " function to both the splitted string 10 & 20 & int is applied to each element.
+which makes them 
+a = 10   # integer ✅  
+b = 20 
+Now the Operation will give answer which is actual meaning of operation rather than concatenation.

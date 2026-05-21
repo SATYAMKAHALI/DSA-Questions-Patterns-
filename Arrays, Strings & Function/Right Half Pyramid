@@ -1,0 +1,26 @@
+Qstn ) you are given an input n and you have to print right half pyramid of pattern ,"*"
+input - n=5
+*
+**
+***
+****
+*****
+Ans ) in c++ :
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution {
+public:
+    void printPattern(int n) {
+        //Write your code here...
+        
+        for(int i=1;i<=n;i++){
+            for (int j=1;j<=i;j++){
+              cout << "*" ; 
+            }
+            cout << endl;
+        }
+    }
+};
+
+Ans ) in python :

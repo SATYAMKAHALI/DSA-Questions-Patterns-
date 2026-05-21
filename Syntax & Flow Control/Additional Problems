@@ -1,0 +1,26 @@
+Qstn > Add character in the beginning and end of a string . eg; char c = "a" , string s = "bc" , output = "abca"
+Ans > in c++
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution {
+public :    
+    string result (char c, string s){
+    cin >> c >> s;
+    return c + s + c;
+   //cout << s.at(0) = c && s.at(s.length() -1) = c; This I had written wrongly and then rectified to the above code
+    }
+};
+
+int main() {
+    // Write Your Code here...
+    char c;
+    string s;
+    cin >> c;
+    cin >> s;
+    solution obj;
+    cout << obj.result(c,s) << endl;
+    return 0;
+}
+
+Ans> In python :

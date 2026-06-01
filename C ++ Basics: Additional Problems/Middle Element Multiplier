@@ -1,0 +1,48 @@
+Qstn ): You are given an integer k and and array containing n integers. Your task is update the middle element by multiplying with integer k and then print all the elements of array in space-separated format.
+Ans (in cpp):
+Wrong Snippet
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution {
+public:
+    void manipulateArray(int arr[], int n, int k) {
+        //Write your code here...
+        int length = sizeof (arr)/ sizeof (arr[0]) ;
+        int mid;
+        if ((length % 2) ==  0){
+            mid = length/2;
+        }
+        else {
+            mid = (length / 2) + 1;
+        }
+        arr[mid]= arr[mid]*k;
+        cout << arr;
+    }
+};
+______________________________________________________________________
+this is printing : 0xffffcaab2da0 . why ? :- Instead of printing the numbers inside the array, cout << arr; will print a hexadecimal memory address (like 0x7ffee3b4da20). 
+You misread the question and thought length of array is not given., but it was given as n;
+_________________________________________________________________________________________________________________
+Correct Snippet 
+
+#include <bits/stdc++.h>
+using namespace std;
+class solution {
+public:
+    void manipulateArray(int arr[], int n, int k) {
+        //Write your code here...
+        int mid;
+        if ((n % 2) ==  0){
+            mid = (n/2) -1;
+        }
+        else {
+            mid = (n / 2) ;
+        }
+        arr[mid]= arr[mid]*k;
+        for (int i =0;i< n; i++){
+            cout << arr[i] << " ";
+        }
+    }
+};

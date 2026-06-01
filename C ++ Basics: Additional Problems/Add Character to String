@@ -303,3 +303,14 @@ Buffer contains \nhello world\n
 
 In the common competitive-programming view where the entire input has already been supplied to the program. 
 The behavior of `cin`, `cin.ignore()`, and `getline()` is the same in both cases.
+___________________________________________________________________________________________________________________________________________________
+Complexity Analysis
+Time Complexity: O(n)  
+Insertion at the beginning takes O(n), since all characters shift right.
+Appending at the end takes O(1).
+
+Space Complexity: O(1) / O(n)  
+C++ (Pass by Reference): O(1) (modifies the string in-place).
+Python (String to List Conversion): O(n) (since strings are immutable, a list is used).
+Java (StringBuilder Usage): O(n) (since strings are immutable, StringBuilder is required).
+Overall Space Complexity: O(1) for C++, O(n) for Python & Java.

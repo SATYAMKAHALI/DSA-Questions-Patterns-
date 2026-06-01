@@ -1,0 +1,26 @@
+Qstn) : Given a string str & character ch, count the no. of times a character appears in the given string.
+Ans): (in cpp)
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution {
+public:
+    int countChar(string str, char ch) {
+        //Write your code here...
+        int freq = 0;
+        for(int i = 0; i<=str.length(); i++){
+            if(str[i]==ch){
+                freq += 1;
+            }
+        }
+        return freq;
+    }
+};
+__________________________________________________________________________________________________________
+Complexity Analysis
+Time Complexity: O(n)
+We traverse each character in the string once, making the time complexity linear, where n is the length of the string.
+
+Space Complexity: O(1)
+No additional space is used other than variables, resulting in constant space complexity.
+_______________________________________________________________________________________________________________

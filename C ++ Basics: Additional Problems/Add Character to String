@@ -26,3 +26,281 @@ int main() {
 }
 
 Type 2 - In place Modification :
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution{
+public:
+    string addChar(char c, string &s) {      // The & means pass by reference.Instead of making a copy of the string, the function works on the original string.
+        s.insert(s.begin(), c);              // Since s is passed by reference, both s in main() and s inside the function refer to the same string.
+        s.push_back(c);                      // s. begin () : It returns an iterator pointing to the first character.. s.insert(s.begin(), 'A') will make "Ahello" if String is "hello" and character is "c".
+        return s;                            // string.insert(position, character); & s.push_back() adds a character at the end. so it will become "AhelloA".
+    }
+};
+
+int main() {
+    char c;
+    string s;
+                                              
+    cin >> c;                                
+    cin.ignore();                            // cin.ignore() is explained in the end.
+    getline(cin, s);                         // this is an input getline() function which takes the string as input. It does not take a char variable as input. It takes input and stores it into a string variable s.
+
+    solution sol;
+    string result = sol.addChar(c, s);
+
+    cout << result << endl;
+
+    return 0;
+}
+
+// cin.ignore() does removes leftover newline (\n) after cin >> . What it means :- 
+Suppose the input is:
+A
+hello world 
+
+and our code is:
+
+char c;
+string s;
+cin >> c;
+getline(cin, s);
+
+cin >> c; reads: A and stores: c = 'A'; 
+But when you press Enter while inputting the string (cin takes input from the user, so 1st input will be a character c, then we click enter and then 2nd input of string is given), a newline character (\n) is also entered. 
+So the input buffer now contains: \nhello world .
+
+Think of it like:
+Buffer:
+↓
+[\n][h][e][l][l][o]..
+
+Now:
+getline(cin, s); starts reading from the buffer.
+But the first thing it sees is: \n
+and getline() stops when it encounters a newline.
+
+So it reads: s = ""; When getline() encounters \n, it does not move to the next line and continue reading. Instead, it treats \n as the end of the current line and stops.
+Think about this input:
+
+A
+hello world
+                              ↓
+Internally, it's stored as: A\nhello world\n . so when c++ reads this then it understands that ohh! I got to the end of line, so it will stop.
+
+Suppose the buffer contains : \nhello world\n and you run: getline(cin, s);
+
+It's like asking:
+"Read characters until you see a newline."
+
+But the very first character is already a newline.
+So it reads: nothing and stores: s = "";
+Therefore cin.ignore() is used to remove the leftover \n before calling getline().
+
+| Function          | Variable Type | Reads                          |
+| ----------------- | ------------- | ------------------------------ |
+| `cin >> c`        | `char`        | One character                  |
+| `cin >> s`        | `string`      | One word                       |
+| `getline(cin, s)` | `string`      | Entire line (including spaces) |
+
+___________________________________________________________________________________________________________________________________________________________
+2 types on how you can view this program (case I: Competetive Programming , case II: Interactive Typing)
+
+The answer depends on how the input is provided.
+
+### Case 1: Competitive Programming / Online Judge
+
+Suppose the input is:
+
+```
+A
+hello world
+```
+
+The judge provides all the input at once before your program starts.
+
+Think of the input stream as already containing:
+
+```
+A\nhello world\n
+```
+
+before the first line of your code executes.
+
+So when:
+
+```
+cin >> c;
+```
+
+runs, it reads only the `A` and leaves:
+
+```
+\nhello world\n
+```
+
+in the input buffer.
+
+Then:
+
+```
+cin.ignore();
+```
+
+removes the first `\n`.
+
+Then:
+
+```
+getline(cin, s);
+```
+
+reads `hello world`.
+
+---
+
+### Case 2: Interactive Typing (What you're imagining)
+
+You're imagining:
+
+```
+cin >> c;
+```
+
+Program stops and waits.
+
+You type:
+
+```
+A
+```
+
+Then `cin >> c` completes.
+
+Next:
+
+```
+cin.ignore();
+```
+
+runs.
+
+Then:
+
+```
+getline(cin, s);
+```
+
+runs and **now** the program waits for you to type:
+
+```
+hello world
+```
+
+In this situation, you're right:
+
+Before `getline()` is reached, the buffer does **not** contain `hello world`.
+
+It only contains the leftover newline from pressing Enter after `A`.
+
+---
+
+### Let's trace interactive input
+
+Code:
+
+```
+cin >> c;
+cin.ignore();
+getline(cin, s);
+```
+
+Execution:
+
+#### Step 1
+
+Program reaches:
+
+```
+cin >> c;
+```
+
+and waits.
+
+You type:
+
+```
+A↵
+```
+
+Buffer receives:
+
+```
+A\n
+```
+
+`cin >> c` consumes `A`.
+
+Buffer now:
+
+```
+\n
+```
+
+#### Step 2
+
+```
+cin.ignore();
+```
+
+consumes:
+
+```
+\n
+```
+
+Buffer now:
+
+```
+(empty)
+```
+
+#### Step 3
+
+```
+getline(cin, s);
+```
+
+Program waits again.
+
+Now you type:
+
+```
+hello world↵
+```
+
+Buffer receives:
+
+```
+hello world\n
+```
+
+`getline()` reads:
+
+```
+s = "hello world";
+```
+
+---
+
+So your reasoning is correct for **interactive typing**.
+
+When I wrote:
+
+```
+Buffer contains \nhello world\n
+```
+
+In the common competitive-programming view where the entire input has already been supplied to the program. 
+The behavior of `cin`, `cin.ignore()`, and `getline()` is the same in both cases.

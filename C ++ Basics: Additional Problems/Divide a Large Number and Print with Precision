@@ -1,0 +1,20 @@
+Qstn ) : You are given a large number (of type long long) and another integer. Your task is to divide the large number with the integer and print the result with exactly 2 decimal place.
+Ans ) : (in C++)
+#include <bits/stdc++.h>
+using namespace std;
+long division(int num, int divisor){
+    double result;
+    result = double(num)/divisor ;
+    cout<< fixed << setprecision (2) << result << endl;
+    return 0;
+}
+
+int main() {
+    // Write Your Code here...
+    int num;
+    int divisor;
+    cin >> num >> divisor ;
+    division(num,divisor);
+    return 0;
+}
+Problems : if you take result as double only then it will work otherwise it will do the integer division first. I took long at first but got the issue because the issue is that long is still an integer type, not a floating-point type.

@@ -1,0 +1,28 @@
+Qstn ) : You are given a character c and a string s, your task is to modify s by adding character c to both beginning & end and print the result.
+Ans ) : (in c++)
+Type 1 - Direct Concatenation :
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution {
+public :    
+    string result (char c, string s){
+    cin >> c >> s;
+    return c + s + c;
+   //cout << s.at(0) = c && s.at(s.length() -1) = c; This I had written wrongly and then rectified to the above code
+    }
+};
+
+int main() {
+    // Write Your Code here...
+    char c;
+    string s;
+    cin >> c;
+    cin >> s;
+    solution obj;
+    cout << obj.result(c,s) << endl;
+    return 0;
+}
+
+Type 2 - In place Modification :

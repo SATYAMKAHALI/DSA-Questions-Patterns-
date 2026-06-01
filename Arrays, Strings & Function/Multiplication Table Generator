@@ -12,7 +12,9 @@ output :
 5 x 8 = 40
 5 x 9 = 45
 5 x 10 = 50     // the output should follow this specific order.
+
 Ans : in c++
+(Correct Code Snippet) :
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -25,6 +27,7 @@ public:
         }
     }
 };
+
 In the platform there was a main function was already declared inside class solution inherently therefore I was getting an error :
 main.cpp:22:5: error: conflicting declaration of C function 'int main(int, char**)'
    22 | int main(int argc, char* argv[]) {
@@ -33,7 +36,7 @@ In file included from main.cpp:11:
 solution.cpp:12:5: note: previous declaration 'int main()'
    12 | int main(){
       |     ^~~~
-
+____________________________________________________________________________________________________________________
 what I had written before was : 
 2nd wrong snippet:
 #include <bits/stdc++.h>
@@ -55,7 +58,7 @@ int main() {
 
     return 0;
 }
-
+____________________________________________________________________________________________________________________
 1st wrong snippet: 
 #include <bits/stdc++.h>
 using namespace std;
@@ -78,7 +81,7 @@ public:
         }
     }
 };
-
+___________________________________________________________________________________________________________________
 Mistakes : #1 Main function in C++ is always written below rest other functions in the end.
 #2 the length function has to return an integer of array length. This exact formula works if written outside a function.
 

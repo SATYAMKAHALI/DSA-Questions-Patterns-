@@ -9,8 +9,7 @@ class solution {
 public :    
     string result (char c, string s){
     cin >> c >> s;
-    return c + s + c;
-   //cout << s.at(0) = c && s.at(s.length() -1) = c; This I had written wrongly and then rectified to the above code
+    return c + s + c;                 //cout << s.at(0) = c && s.at(s.length() -1) = c; This I had written wrongly and then rectified to the present code i.e., "return c + s + c"
     }
 };
 

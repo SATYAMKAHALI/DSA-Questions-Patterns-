@@ -1,0 +1,23 @@
+Qstn ) Right-Angled Number Triangle
+n = 4
+1
+2 2
+3 3 3
+4 4 4 4
+Ans ) (in CPP) :
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution {
+public:
+    void printRightAngledNumberTriangle(int n) {
+        // Write your code here...
+        for (int i=1; i<=n; i++){
+            for(int j=1; j<=i; j++){
+                cout << i << " ";
+            }
+            cout << endl;
+        }
+    }
+};

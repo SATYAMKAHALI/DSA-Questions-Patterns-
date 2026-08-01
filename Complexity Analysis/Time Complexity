@@ -1,0 +1,374 @@
+Introduction to Time Complexity
+Time complexity is a way to measure the efficiency of an algorithm. 
+It tells us how the running time (or the number of steps executed) increases as the size of the input increases. 
+By counting the number of basic operations (such as comparisons, arithmetic operations, or input/output actions), we can express the time complexity using notations like Big-O, which gives us a high-level understanding of the algorithm's performance under scaling.
+
+Key Points:
+Purpose: To determine how fast an algorithm runs relative to the input size.
+
+Method: Count the number of basic operations (or steps) executed.
+
+Representation: Usually expressed in Big-O notation (e.g., O(1), O(N), O(N²)), which provides an upper bound on the runtime.
+
+Real-Life Examples
+Sports Car vs. Auto-Rickshaw:
+Imagine a race between a sports car and an auto-rickshaw.
+The sports car wins because it has a superior speed and performance.
+Similarly, in the world of algorithms, a faster (more efficient) algorithm will "win" by processing inputs more quickly than a slower one.
+
+Google Search:
+When you type a query into Google, the search engine processes billions of results and returns the answer in a fraction of a second. This speed is a direct result of highly optimized algorithms that can handle enormous amounts of data efficiently.
+The Google returns results in about 0.25 seconds for around 6,18,00,00,000 results, emphasizing that even with huge data, efficiency is maintained through well-designed algorithms.
+These examples illustrate that whether it's a race or a search query, the speed at which operations are carried out is crucial.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Example 1: Print 1 to N Using For loop
+Code Implementation:
+CPP
+
+#include<bits/stdc++.h>
+using namespace std; 
+int main() {  
+int N;   
+cin >> N;   
+int i;  
+for (i = 1; i <= N; i++) {  
+cout << i << endl;   
+} 
+return 0;
+
+Explanation:
+
+Initialization (Before the Loop):
+Setting i = 1 is performed once.  
+Step Count: 1 step
+
+Loop Condition Checks and Iterations:
+ For each iteration of the loop (from 1 to N), we perform three primary operations:
+
+Condition Check: Before every iteration, the loop checks if i <= N.  Step Count: 1 step per iteration.
+
+Operation: The current value of i is printed.  Step Count: 1 step per iteration (we assume printing is a single operation).
+
+Updation: The loop variable i is incremented (e.g., i++). Step Count: 1 step per iteration.
+
+So, for each iteration, the steps add up to 3 steps.
+
+Final Condition Check:
+ After the N-th iteration, the loop performs one more condition check:
+When i becomes N + 1, the condition i <= N fails, and the loop terminates.  
+
+Step Count: 1 additional step.
+
+Total Step Count Calculation
+
+Now, combine all the operations:
+
+Initialization: 1 step
+
+Loop Iterations: Each of the N iterations performs 3 steps, so total = 3 * N
+
+Final Condition Check: 1 step
+
+Thus, the total number of steps becomes:
+
+Total Steps = 1 + 3*N + 1 = 3N + 2
+
+Example: For N = 5
+
+Initialization:  
+
+Set i = 1 (1 step)
+Iteration 1:  
+
+Check if 1 <= 5 (1 step)
+
+Print 1 (1 step)
+
+Increment i to 2 (1 step)
+
+Total for Iteration 1: 3 steps
+
+Iteration 2:  
+
+Check if 2 <= 5 (1 step)
+
+Print 2 (1 step)
+
+Increment i to 3 (1 step)
+
+Total for Iteration 2: 3 steps
+
+Iteration 3:  
+
+Check if 3 <= 5 (1 step)
+
+Print 3 (1 step)
+
+Increment i to 4 (1 step)
+
+Total for Iteration 3: 3 steps
+
+Iteration 4:  
+
+Check if 4 <= 5 (1 step)
+
+Print 4 (1 step)
+
+Increment i to 5 (1 step)
+
+Total for Iteration 4: 3 steps
+
+Iteration 5:  
+
+Check if 5 <= 5 (1 step)
+
+Print 5 (1 step)
+
+Increment i to 6 (1 step)
+
+Total for Iteration 5: 3 steps
+
+Final Check:  
+
+Check if 6 <= 5 fails (1 step)
+Total Steps Calculation:  
+
+Initialization: 1 step
+
+5 iterations: 5 * 3 = 15 steps
+
+Final condition check: 1 step
+
+1 + 15 + 1 = 17 steps, which aligns with 3*5 + 2 = 17.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Example 2: Even/Odd Check
+Code Implementation:
+CPP
+
+#include<bits/stdc++.h>
+using namespace std;
+int main() { 
+int N;  
+cin >> N;  
+if (N % 2 == 0) {  
+cout << "even" << endl;   
+} else {      
+cout << "odd" << endl;  
+} 
+
+Explanation:
+
+if Statement - Condition Check:
+
+Modulus Operation & Comparison:  
+
+Compute N % 2 to get the remainder when N is divided by 2, and compare the result with 0 to determine if N is even.
+
+Step Count:  
+
+These two actions together are considered as a single step.
+
+Output Operation:
+
+Operation:  
+
+Based on the result of the above step, print even if the result is 0, or print odd otherwise.
+
+Step Count:  
+
+The printing is counted as 1 step.
+
+Total Steps:  
+
+Adding these, the even/odd check takes approximately 1 (modulus operation and comparison) + 1 (output) = 2 steps.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Example 3: Pattern Printing
+Code Implementation:
+CPP
+
+#include<bits/stdc++.h>
+using namespace std; 
+int main() {   
+int N;  
+cin >> N;   
+for(int i = 1; i <= N; i++) {    
+   for(int j = 1; j <= N; j++) {  
+       cout << "*";    
+      }       
+      cout << endl; 
+   }
+    return 0;
+}
+
+Explanation:
+Inner Loop (Executed for each outer loop iteration):
+
+Initialization:  
+
+Setting int j = 1 is performed once for each iteration of the outer loop.  
+
+Step Count: 1 step per outer iteration.
+
+Loop Condition Checks and Iterations:
+
+For each iteration of the inner loop (from 1 to N), we perform three primary operations:
+
+Condition Check: Before every inner iteration, the loop checks if j <= N.  
+
+Step Count: 1 step per inner iteration.
+
+Operation: The star * is printed.  
+
+Step Count: 1 step per inner iteration.
+
+Updation: The loop variable j is incremented (i.e., j++).  
+
+Step Count: 1 step per inner iteration.
+
+So, for each inner iteration, the steps add up to 3 steps.
+
+Final Condition Check (Inner Loop):
+
+After completing the N iterations, an extra condition check is performed when j becomes N + 1 and fails.  
+
+  Step Count: 1 additional step.
+
+Total Inner Loop Steps (per outer iteration) = 1 (initialization) + 3*N (for N iterations) + 1 (final check) = 3N + 2 steps.
+
+Outer Loop:
+
+Initialization (Before the Loop):
+
+Setting int i = 1 is performed once.
+
+Step Count: 1 step.
+
+Loop Condition Checks and Iterations:
+
+For each iteration of the outer loop (from 1 to N), we perform the following:
+
+Condition Check: Before every outer iteration, the loop checks if i <= N.  
+
+Step Count: 1 step per outer iteration.
+
+Operation:
+The entire inner loop runs (which takes 3N + 2 steps as calculated above).
+After the inner loop completes, a newline is printed (cout << endl), which is 1 step.  
+
+Step Count: (3N + 2) + 1 = 3N + 3 steps per outer iteration.
+
+Updation: The loop variable i is incremented (i.e., i++).  
+
+Step Count: 1 step per outer iteration.
+
+So, for each outer iteration, the steps add up to 1 (condition) + (3N + 3) (inner loop and newline) + 1 (updation) = 3N + 5 steps.
+
+Final Condition Check (Outer Loop):
+
+After the N-th iteration, an extra condition check is performed when i becomes N + 1 and fails.  
+
+  Step Count: 1 additional step.
+
+Total Outer Loop Steps = 1 (initialization) + N*(3N + 5) (for N iterations) + 1 (final check) = N*(3N + 5) + 2 = 3N^2 + 5N + 2.
+
+Example: For N = 3
+
+Inner Loop (Per Outer Iteration):
+
+Initialization: Set j = 1 → 1 step
+
+For 3 iterations:
+
+Each iteration performs: 1 (condition) + 1 (print *) + 1 (update) = 3 steps
+
+For 3 iterations: 3 * 3 = 9 steps
+
+Final condition check when j = 4: 1 step
+
+Total Inner Loop Steps = 1 + 9 + 1 = 11 steps (per outer iteration).
+
+Outer Loop:
+
+Initialization: Set i = 1 → 1 step
+
+For each of the 3 iterations:
+
+Each iteration includes:  
+
+1 step for the condition check
+
+11 steps for the inner loop
+
+1 step for printing a newline
+
+1 step for updating i
+
+Total per iteration = 1 + 11 + 1 + 1 = 14 steps
+
+For 3 iterations: 3 * 14 = 42 steps
+
+Final condition check when i = 4: 1 step
+
+Total Outer Loop Steps = 1 (initialization) + 42 (for 3 iterations) + 1 (final check) = 44 steps.
+
+Overall Total Steps Calculation:
+
+The overall step count for the pattern printing algorithm is determined by the outer loop's total steps, which is given by:  Total Steps = N*(3N + 5) + 2  
+For N = 3, this equals 44 steps.
+
+Comparison of Examples:
+Step Comparison of Different Algorithms:
+
+Algorithm 1: 3N + 2 steps
+Algorithm 2: 2 steps
+Algorithm 3: 3N² + 5N + 2 steps
+
+__ Example Calculations for Varying N: __
+N	Algorithm 1: 3N + 2	                        Algorithm 2: 2	                                    Algorithm 3: 3N² + 5N + 2
+1	3×1 + 2 = 5	                                      2                                              	3×1² + 5×1 + 2 = 10
+5	3×5 + 2 = 17	                                    2                                               	3×25 + 25 + 2 = 102
+100	3×100 + 2 = 302                                 2	                                           3×10,000 + 500 + 2 = 30,502
+10,000	3×10,000 + 2 = 30,002                      	2	                                     3×100,000,000 + 50,000 + 2 = 300,050,002
+100,000	3×100,000 + 2 = 300,002                   	2                                 	3×10,000,000,000 + 500,000 + 2 = 30,000,500,002
+
+Observations:  
+For very small values of N (e.g., N = 1 or 5), the constant time algorithm (Algorithm 2) and the linear algorithm (Algorithm 1) perform very few steps compared to the quadratic algorithm (Algorithm 3).
+As N increases, the quadratic term in Algorithm 3 dominates, resulting in a rapid growth in the number of steps.
+Algorithm 1 grows linearly with N, while Algorithm 2 remains constant regardless of N.
+
+Complexity Notations:
+1)Big O Notation (O): (Worst Case Scenario)
+Purpose: Describes the upper bound (worst-case scenario) of an algorithm’s running time.
+
+How It Works: Constants and lower-order terms are ignored.
+
+Examples:  
+
+Algorithm 1: O(N)
+Algorithm 2: O(1)
+Algorithm 3: O(N²)
+
+2)Big Theta Notation (Θ): (Average Case Scenario)
+Purpose: Provides a tight bound, meaning it describes the exact asymptotic behavior (both upper and lower bounds) of an algorithm’s running time.
+
+Usage: When an algorithm’s performance can be bounded both above and below by the same function.
+
+3)Big Omega Notation (Ω): (Best Case Scenario)
+Purpose: Describes the lower bound (best-case scenario) of an algorithm’s running time.
+
+Usage: It guarantees that the algorithm will take at least a certain amount of time.
+
+Fundamental Rules in Complexity Analysis:
+ i ) __ Neglect Constants __:  When analyzing time complexity, constant factors (like the “+2” in 3N + 2) do not affect the growth rate.
+ ii) __ Ignore Lower Order Terms __: For large input sizes, the highest order term dominates. For instance, in Algorithm 3, the term 3N² grows much faster than 5N or 2.
+
+Summary:
+Algorithm 1 (3N + 2):  
+Linear growth; worst-case running time is O(N).
+
+Algorithm 2 (2):  
+Constant time; worst-case running time is O(1).
+
+Algorithm 3 (3N² + 5N + 2):  
+Quadratic growth; worst-case running time is O(N²).
+

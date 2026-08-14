@@ -1,0 +1,71 @@
+Space Complexity
+Time & Space
+
+What is time and space for an algorithm?
+When you use code or an algorithm, it takes two important things: time (how fast it works) and space (how much memory it uses).
+
+Time
+An algorithm takes a certain amount of time to run, depending on its complexity and the size of the problem it's solving.
+Space
+Space complexity is how much computer memory an algorithm needs to complete a task.
+
+Just like we care about an algorithm's time efficiency, we also focus on its space usage by aiming to minimize memory consumption, which is the essence of space complexity analysis.
+
+Example 1: Addition Function
+C++ Code
+
+#include <iostream>
+using namespace std;
+int addition(int a, int b){
+    int c = a + b;
+    return c;
+}
+int main() {
+    cout << addition(10,5); // Output - 15
+    return 0;
+}
+
+@ The addition function uses a fixed amount of space regardless of the input values.
+@ It needs space for three integers (a, b, and c) and a small amount of additional memory for the function call itself.
+@ So, its space complexity will be O(3 + c(space for function call)) = O(1).
+
+Now, let's consider optimizing the code to use less space. By eliminating the intermediate variable c and directly returning a + b, like this:
+
+Optimized Code
+C++ Code
+
+#include <iostream>
+using namespace std;
+int addition(int a, int b){
+    return a + b;
+}
+int main() {
+    cout << addition(10,5); // Output - 15
+    return 0;
+}
+
+@ In this case, it only requires memory for the input parameters 'a' and 'b', and a little bit of extra space for the function call itself.
+@ Space complexity: O(2 + c (space for function call)) = O(1)
+
+Example 2: Sum of Array Function
+C++ Code
+
+#include <iostream>
+using namespace std;
+int add_array(int arr[], int n){
+     int sum = 0;
+     for (int i = 0; i < n; i++){
+        sum = sum + arr[i];
+     }
+     return sum;
+}
+int main() {
+    int arr[] = {1,2,3,4,5};
+    cout << add_array(arr,5);
+    return 0;
+}
+
+@ the add-array function uses space depending upon the input value N (size of array)
+@ it needs space for array, n, sum, i, and a small amount of additional memory for the function call itself.
+@ So, its space complexity will be O( N(space for array) + 3(space for n, sum, i integers) + c(space for function call)) = O(N).
+

@@ -1,18 +1,22 @@
 Introduction
-The Standard Template Library (STL) in C++ is a powerful toolkit that provides a collection of algorithms, data structures, and containers. It enables developers to write efficient and generic code, simplifying tasks such as data manipulation, searching, sorting, and more.
+The Standard Template Library (STL) in C++ is a powerful toolkit that provides a collection of algorithms, data structures, and containers.
+It enables developers to write efficient and generic code, simplifying tasks such as data manipulation, searching, sorting, and more.
 
 Key Components of the STL
 Containers:
-Containers are used to store and manage collections of data. The STL provides various container types, such as vectors, lists, maps, sets, and stacks, each optimized for specific use cases.
+Containers are used to store and manage collections of data. The STL provides various container types, such as vectors, lists, maps, sets, and stacks,
+each optimized for specific use cases.
 
 Algorithms:
 The STL includes a wide range of algorithms, such as sort, find, and binary_search, which can be applied to containers to perform operations like sorting, searching, and modifying data.
 
 Iterators:
-Iterators act as pointers to elements within containers, allowing you to traverse and access data. The STL provides different types of iterators (e.g., input, output, forward, bidirectional, random access) to suit the needs of various containers.
+Iterators act as pointers to elements within containers, allowing you to traverse and access data. The STL provides different
+types of iterators (e.g., input, output, forward, bidirectional, random access) to suit the needs of various containers.
 
 Function Objects (Functors):
-Function objects, or functors, are objects that can be used like functions. They can be passed as arguments to algorithms, allowing you to customize their behavior based on specific requirements.
+Function objects, or functors, are objects that can be used like functions. They can be passed as arguments to algorithms,
+allowing you to customize their behavior based on specific requirements.
 
 Arrays  V/s Vectors
 Aspect	                       Arrays	                                                Vectors
@@ -22,7 +26,9 @@ Functions              	Limited built-in functions                       Extensi
 
 1 ) Pair
 
-A pair in C++ is a simple container that combines two values, which can be of different types, into a single entity. It is useful for storing pairs of values, where the first and second elements are easily accessible. Pairs are commonly used in data structures like maps and for associating related data elements.
+A pair in C++ is a simple container that combines two values, which can be of different types, into a single entity.
+It is useful for storing pairs of values, where the first and second elements are easily accessible. 
+Pairs are commonly used in data structures like maps and for associating related data elements.
 
 The pair container is defined in the <utility> header. It can also be used by including the <bits/stdc++.h> header, which includes most standard library headers.
 
@@ -31,7 +37,8 @@ pair<DataType1, DataType2> variableName; // Declaration
 variableName.first = value1; 
 variableName.second = value2;
 
-In summary, a pair is a convenient way to bundle two related values together. It is particularly useful for scenarios where you need to store key-value pairs or associate two pieces of data.
+In summary, a pair is a convenient way to bundle two related values together. It is particularly useful for scenarios where
+you need to store key-value pairs or associate two pieces of data.
 
 Types of Pair Declarations:
    A ) Pair with an Integer and a Double

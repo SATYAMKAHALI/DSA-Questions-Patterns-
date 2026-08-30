@@ -1,0 +1,61 @@
+Qstn ) : Pair Sum and Concatenation Challenge
+You are given a vector that contains pairs, each consisting of an integer and a string. Your task is to perform operations on this vector to compute the toal sum of all integers within these pairs,
+concatenate all strings from these pairs into a single string, and then output the following:
+1) The total sum of all integers from the pairs.
+2) The concatenated string formed by combining all strings from the pairs.
+3) The length of the concatenated string.
+EG : 
+Input :- 
+3
+10 hello
+20 world
+30 welcome
+
+Output :- 
+60
+helloworldwelcome
+17
+
+The input starts with 3, indicating there are three pairs.
+The integers sum up to 60
+The concatenated string becomes helloworldwelcome.
+
+Soln : 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class solution{
+    public:
+    void operate( vector<pair<int, string>> &pairs) {
+        //Write your code here...
+        int total_sum =0;
+        string combinedString = "";
+        for (int i =0; i<pairs.size(); i++){
+            total_sum += pairs[i].first;
+            combinedString += pairs[i].second;    
+        }
+        
+        cout << total_sum << "\n";
+        cout << combinedString << "\n";
+        cout << combinedString.length() << "\n";
+        
+        
+    }
+};
+The main function was present inbuilt .
+/*
+int main() {
+    int n;
+    cin >> n;
+
+    vector<pair<int, string>> pairs(n);
+    for (int i = 0; i < n; i++) {
+        cin >> pairs[i].first >> pairs[i].second;
+    }
+
+    solution sol;
+    sol.operate(pairs);
+    return 0;
+}
+*/
